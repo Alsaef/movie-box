@@ -5,7 +5,7 @@ const Card = ({ movie }) => {
     <div className="group relative overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
       
       <img
-        src={movie.Images?.[1] || movie.Images?.[0]}
+        src={movie.Images?.[1]}
         alt={movie.Title}
         className="h-[300px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
