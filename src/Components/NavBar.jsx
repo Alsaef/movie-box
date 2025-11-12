@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/images/logo.png';
+import SearchBar from './SearchBar';
+import { Link } from 'react-router-dom';
 const NavBar = () => {
+    const [searchBar, setSearchBar] = useState(false)
     let nav = <>
-        <li><a href="">Feature</a></li>
+        <li><Link to="/">Feature</Link></li>
         <li><a href="">All Movie</a></li>
         <li><a href="">Popular Movie</a></li>
     </>
@@ -28,12 +31,28 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <button onClick={() => setSearchBar(!searchBar)} className="cursor-pointer">
+                        {
+                            searchBar===false?  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>
-                    </a>
+                    </svg> :  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                        }
+                       
+
+
+                       
+
+                    </button>
                 </div>
             </div>
+
+            <div className={`flex flex-col items-center overflow-hidden transition-all duration-300 ease-in-out ${searchBar ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                {
+                    searchBar === true && <SearchBar setSearchBar={setSearchBar}></SearchBar>}
+            </div>
+
         </div>
     );
 };

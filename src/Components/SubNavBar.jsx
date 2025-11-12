@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook,FaInstagram,FaTwitter } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const SubNavBar = () => {
     
@@ -8,7 +9,7 @@ const SubNavBar = () => {
             <div className='flex items-center justify-around py-1'>
 
                 <div className='flex items-center justify-center gap-4 text-white'>
-                    <li className='list-none'><a href="">Home</a></li>
+                    <li className='list-none'><Link to="/">Home</Link></li>
                     <li className='list-none'><a href="">About</a></li>
                     <li className='list-none'><a href="">Contact</a></li>
                 </div>
