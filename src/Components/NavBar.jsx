@@ -6,12 +6,12 @@ const NavBar = () => {
     const [searchBar, setSearchBar] = useState(false)
     let nav = <>
         <li><Link to="/">Feature</Link></li>
-        <li><a href="">All Movie</a></li>
+        <li><Link to="/watch-list">Watch List</Link></li>
         <li><a href="">Popular Movie</a></li>
     </>
     return (
         <div>
-            <div className="navbar bg-base-100  mx-auto lg:w-[60%] w-full">
+            <div className="navbar bg-base-100  mx-auto lg:w-[60%] w-full z-30">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

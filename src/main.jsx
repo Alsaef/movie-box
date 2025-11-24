@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home.jsx';
 import SearchMovies from './Components/SearchMovies.jsx';
+import WatchListProvider from './Context/WatchListProvider.jsx';
 
 
 
@@ -16,7 +17,9 @@ import SearchMovies from './Components/SearchMovies.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <BrowserRouter>
-  <App/>
+  <WatchListProvider>
+    <App/>
+  </WatchListProvider>
   </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )

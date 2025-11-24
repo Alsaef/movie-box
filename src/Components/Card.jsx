@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { WatchListContext } from '../Context/WatchListProvider';
 
 const Card = ({ movie }) => {
+  const {watchList,setWatchList}=useContext(WatchListContext)
+  const handelWatchList=(drilingmovie)=>{
+   const newList={
+    Title:drilingmovie.Title,
+    images:drilingmovie.Images?.[1],
+    ratting:drilingmovie.imdbRating
+   }
+
+    setWatchList([...watchList,newList])
+
+    alert('Add Watch List')
+  }
+  useEffect(()=>{
+     localStorage.setItem('watchList',JSON.stringify(watchList))
+  },[watchList])
   return (
     <div className="group relative overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
       
@@ -25,7 +41,7 @@ const Card = ({ movie }) => {
       
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <h3 className="text-xl font-semibold mb-2">{movie.Title}</h3>
-
+         <button onClick={()=>handelWatchList(movie)} className='btn bg-red-500 text-white rounded-2xl'>Add Watch List</button>
       </div>
     </div>
   );
