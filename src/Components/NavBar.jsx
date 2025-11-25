@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Logo from '../assets/images/logo.png';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
+import { WatchListContext } from '../Context/WatchListProvider';
 const NavBar = () => {
     const [searchBar, setSearchBar] = useState(false)
+     const { watchList } = useContext(WatchListContext)
     let nav = <>
         <li><Link to="/">Feature</Link></li>
-        <li><Link to="/watch-list">Watch List</Link></li>
+        <li><Link to="/watch-list">Watch List <div className="badge badge-sm badge-secondary">+{watchList?.length}</div></Link></li>
         <li><a href="">Popular Movie</a></li>
     </>
     return (

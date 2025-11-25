@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { WatchListContext } from '../Context/WatchListProvider';
-
+import Swal from 'sweetalert2'
 const Card = ({ movie }) => {
   const {watchList,setWatchList}=useContext(WatchListContext)
   const handelWatchList=(drilingmovie)=>{
@@ -12,7 +12,12 @@ const Card = ({ movie }) => {
 
     setWatchList([...watchList,newList])
 
-    alert('Add Watch List')
+    Swal.fire({
+  title: "Add Watch List",
+  text: "",
+  icon: "success"
+});
+    
   }
   useEffect(()=>{
      localStorage.setItem('watchList',JSON.stringify(watchList))
